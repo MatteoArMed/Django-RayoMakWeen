@@ -1,0 +1,65 @@
+{% extends 'Mecanico/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<!-- Inicio Cuerpo Pagina -->
+<div class="container text-center">
+    <div class="row">
+        <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+                </div>    
+                <div class="carousel-inner" id="Tamano_Carrusel"> 
+
+                    <!-- Primera Imagen Carrusel -->
+                    <div class="carousel-item active c-item">
+                        <img class="d-block w-100 c-img" src="{% static 'Mecanico/Imagenes/Imagen_Carrusel_1.jpg' %}" alt="Primera slide">
+                        <a href=""></a>     
+                        <!-- El atributo mb-X o mt-X permite colocar un margen en Bottom o Top, con parametros del 1 al 5 -->
+                        <!-- El atributo d-none sumado a d-md-block hace desaparecer el texto en cuadros muy pequeño y solo se ven de cierta medida hacia adelante -->
+                        <div class="carousel-caption d-none d-md-block top-10 mb-5" data-bs-interval="50000">
+                            <p class="fs-1 text-uppercase ">Taller RayoMakWeen</p>
+                            <p class="h3">Hacemos todo tipo de reparaciones a todos los modelos de autos.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Segunda Imagen Carrusel -->
+                    <div class="carousel-item c-item">
+                        <a href="{% url 'Franchesco' %}" >
+                        <img class="d-block w-100 c-img" src="{% static 'Mecanico/Imagenes/Imagen_Carrusel_2.jpg' %}" alt="Segunda slide" link="#">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>Franchesco</h1>
+                        </div>
+                    </div>
+
+                    <!-- Tercera Imagen Carrusel -->
+                    <div class="carousel-item c-item">
+                        <a href="{% url 'Luigi' %}" >        
+                        <img class="d-block w-100 c-img" src="{% static 'Mecanico/Imagenes/Imagen_Carrusel_3.jpg' %}" alt="Tercera slide">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>Luigi</h1>
+                        </div>
+                    </div>
+                    <!-- Cuarta Imagen Carrusel -->
+                    <div class="carousel-item c-item">
+                        <a href="{% url 'Yayo' %}" >        
+                        <img class="d-block w-100 c-img" src="{% static 'Mecanico/Imagenes/Imagen_Carrusel_4.jpg' %}" alt="Cuerta slide">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>Yayo</h1>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Termino Cuerpo Pagina -->
+{% endblock %}

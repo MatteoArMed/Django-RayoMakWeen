@@ -1,0 +1,26 @@
+{% extends 'Mecanico/base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+
+<!-- Inicio Cuerpo Pagina -->
+<div class="container">
+    <div style="text-align: center;" class="md">
+        <form action="{% url 'registro' %}" method="POST" id="crearUsuario" onsubmit="return crearUsuario()">
+            {% csrf_token %}
+            <pre>Nombre:                <input type="text" name="usuario" id="usuario"></pre>
+            <pre>Correo Electrónico:    <input type="email" name="correo" id="emailUsuario"></pre>
+            <pre>Contraseña:            <input type="password" name="contrasenna" id="contrasenna"></pre>
+
+            <button class="btn btn-primary">
+                <a href="{% url 'home' %}" style="text-decoration: none; color: white;"> Volver</a>
+            </button>
+            <button class="btn btn-primary" type="submit">Crear Usuario</button>
+            
+        </form>      
+    </div>
+</div>
+    <!-- Termino Cuerpo Pagina -->
+
+{% endblock %}

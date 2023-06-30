@@ -1,0 +1,63 @@
+{% extends 'Mecanico/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <!-- Inicio Cuerpo Pagina -->
+    <div class="CuerpoPagina">
+        <!-- Inicio Div Tiendas -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card text-center">
+                        <div id="map-container-google-1" class="z-depth-1-half map-container" style="width: 50%; margin: 3%;">
+                            <!-- Api del MAPS de Google -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.6199002623!2d-70.61684182338621!3d-33.433152696628234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf7b9566d44f%3A0x5c1618bbd02ec418!2sAntonio%20Varas%20666%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1683850064969!5m2!1ses!2scl" width="300" height="300" style="border:1px solid;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>            
+                        <div class="card-body">
+                            <h5 class="card-title">Tienda Antonio Varas</h5>
+                            <p class="card-text">Visitanos de Lunes a Viernes de 8:30 a 17:30 Hrs Horario Continuo</p>
+                            <p class="card-text">Sabados de 09:00 a 16:30 Hrs Horario Continuo</p>
+                            <!-- Boton de Envio Mensaje -->
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mensajeTienda">Enviar mensaje</button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Mensaje</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{% url 'tienda' %}" method="POST">
+                                                {% csrf_token %}
+                                                <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label pace">Tu Correo</label>
+                                                <input placeholder="tucorreo@correo.cl" type="email" class="form-control" id="recipient-name" name="correoMensaje">
+                                                </div>
+                                                <div class="mb-3">
+                                                <label for="message-text" class="col-form-label">Mensaje</label>
+                                                <textarea class="form-control" id="message-text" placeholder="¿En que te puedo ayudar?" name="descripcionMensaje"></textarea>
+                                                </div>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-secondary" >Enviar Mensaje</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Termino de Boton de Mensaje -->                        
+                        <div class="card-footer">
+                            <small class="text-body-secondary">Antonio Varas</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Termino Cuerpo Pagina -->
+
+{% endblock %}

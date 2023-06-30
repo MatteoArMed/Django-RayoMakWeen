@@ -1,0 +1,93 @@
+{% extends 'Mecanico/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+{% if user.is_authenticated and user.is_staff %}
+
+<div class="container mt-3">
+    <div style="text-align: center;">
+        {% if atencion %}
+        <h2 style="margin-bottom: 20px;">Formulario Modificar Trabajo</h2>
+        
+        <div class="card" style="max-width: 700px; margin: 0 auto;">
+            <div class="card-body">
+                <form action="{% url 'modificarTrabajo' atencion.pk %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <h6 >Nombre Mecanico:</h6>
+                        {% for mecanico in mecanicos %}
+                            {% if mecanico.id == atencion.id_user_id %}
+                        <input type="text" readonly value="{{ mecanico.username }}" style="text-align: center;">
+                            {% endif %}
+                        {% endfor %}
+                        <h6 for="idAtencionMecanico">ID Atención:</h6>
+                        <input type="hidden" name="idAtencionMecanico" value="{{ atencion.id }}">
+                        <pre >{{ atencion.id }}</pre>
+                    </div>
+                    <div class="form-group">
+                        <h6 for="idMecanico">ID Mecánico:</h6>
+                        <input type="text" class="form-control" id="idMecanico" name="idMecanico" value="{{ atencion.id_user_id }}" readonly style="width: 40px; text-align: center; margin: 0 auto;">
+                    </div>
+                    <div class="form-group">
+                        <h6 for="descripcionTrabajo">Descripción del Trabajo:</h6>
+                        <textarea class="form-control" id="descripcionTrabajo" name="descripcionTrabajo" rows="5">{{ atencion.Diagnostico_Atencion }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <h6 for="materialesUsados">Materiales Utilizados:</h6>
+                        <textarea type="text" class="form-control" id="materialesUsados" name="materialesUsados" value="{{ atencion.MaterialesUsados }}" rows="5">{{ atencion.MaterialesUsados }}
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <h6 for="estadoTrabajo">Estado del Trabajo:</h6>
+                        <input class="form-control" id="estadoTrabajo" name="estadoTrabajo" readonly rows="1" value="{{atencion.EstadoTrabajo }}" style="text-align: center; margin: 0 auto;" >
+                        <br>
+                        <label for="opciones">Selecciona una opción:</label>
+                        <select name="opciones" id="opciones">
+                            <option name="trabajoAprobado" value="1">Aprobado</option>
+                            <option name="trabajoRechazado" value="2">Rechazado</option>
+                            <option name="trabajoPendiente" value="3">Pendiente</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <h6 for="imagenTrabajo">Imagen del Trabajo:</h6>
+                        <input type="file" accept="image/*" name="imagenTrabajo" id="imagenTrabajo">
+                        <br>
+                        <label for="imagenTrabajo">Seleccionar imagen (opcional)</label>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button class="btn btn-secondary d-inline-block">
+                            <a href="{% url 'administrarTrabajos' %}" style="text-decoration: none; color: white;">Volver</a>
+                        </button>
+                        <button type="submit" class="btn btn-secondary d-inline-block">Guardar Cambios</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        {% else %}
+        <h4>No se encontró la atención especificada.</h4>
+        {% endif %}
+    </div>
+</div>
+
+{% else %}
+<br>
+<br>
+<div class="container">
+    <div class="card col-12 col-md-6 offset-md-3">
+        <div class="card-body">
+            <h5>No tienes permiso para estar aqui, vuelve a donde estabas rufian</h5>
+        </div>
+        <button class="btn btn-primary mb-3">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: white;">Volver</a>
+        </button>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

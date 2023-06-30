@@ -1,0 +1,65 @@
+{% extends 'Mecanico/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h2>Mensajes</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Correo Cliente</th>
+                            <th>Descripción Mensaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mensajes in mensaje %}
+                        <tr>
+                            <td class="align-middle">{{ mensajes.Correo_Mensaje }}</td>
+                            <td class="align-middle">{{ mensajes.Descripcion_Mensaje }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <h2>Mensajes de Contacto</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Nombre Contacto</th>
+                            <th>Correo Contacto</th>
+                            <th>Numero Contacto</th>
+                            <th>Descripción Mensaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for contactos in contacto %}
+                        <tr>
+                            <td class="align-middle">{{ contactos.Fecha_Solicitud }}</td>
+                            <td class="align-middle">{{ contactos.Nombre_Contacto }}</td>
+                            <td class="align-middle">{{ contactos.Correo_Contacto }}</td>
+                            <td class="align-middle">{{ contactos.Numero_Contacto }}</td>
+                            <td class="align-middle">{{ contactos.Descripcion_Contacto }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% endblock %}

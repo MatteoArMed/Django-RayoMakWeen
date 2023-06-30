@@ -1,0 +1,114 @@
+html{
+    background: #4e4d4d;
+    
+}
+
+body{
+    background: radial-gradient(circle at 36.97% 42.48%, #ffffff 0, #ffffff 16.67%, #fff9fb 33.33%, #eeeeee 50%, #dbe3e0 66.67%, #cad8d3 83.33%, #bacec6 100%);
+}
+
+header{
+    background: radial-gradient(circle at 36.97% 42.48%, #ffffff 0, #ffffff 16.67%, #fff9fb 33.33%, #eeeeee 50%, #dbe3e0 66.67%, #cad8d3 83.33%, #bacec6 100%);
+}
+
+
+footer{
+    margin: 0 30px;
+    color: black;
+}
+
+footer.bottom {
+    padding: 20px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+footer .legal > a {
+    margin: 0 4px;
+    text-decoration: none;
+    color: black;
+}
+
+footer .legal > span {
+    margin-right: 10px;
+}
+
+
+.c-item{
+    height: 500px;
+}
+
+.c-img{
+    height: 100%;   
+    object-fit: contain;
+}
+
+.cajas{
+    align-items: justyfied;
+}
+
+.card-img-top {
+    overflow: scroll;
+    margin: auto;
+    max-width: 100%;
+    height: 300px;
+}
+
+#descripcionProblema{
+    height: 100px;
+}
+
+.contacto{
+    align-items: center;
+    font-weight: 700;
+    margin: 1%;
+}
+
+.contacto  #botonContacto{
+    text-align: center;
+}
+
+.contacto div{
+    align-items: center;
+    margin-top: 2%;
+}
+
+.card {
+    align-items: center;
+}
+
+
+form{
+    margin: 1%;
+    text-align: center;
+    align-items: center;
+}
+
+
+div > a{
+    font-size: small;
+}
+
+
+.map-container{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-container iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
