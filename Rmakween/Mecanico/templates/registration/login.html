@@ -1,0 +1,43 @@
+{% extends 'Mecanico/base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+
+
+<div class="container ">
+
+    <div class="row ">
+
+        <div class="card col-12 col-md-6 offset-md-3">
+
+            <div class="card-body col-12">
+
+                <h2 style="text-align: center;">Inicio Sesion</h2>
+
+                <form action="{% url 'login' %}" style="text-align: center;" method="POST" onsubmit="return validaLogin()">
+                    {% csrf_token %}
+                    
+                    <pre>   Usuario:    <input type="text" placeholder="Usuario" name="usuario" id="loginUsuario"></pre>
+                    <pre>Contraseña:    <input type="password" placeholder="Contraseña" name="contrasenna" id="loginContrasenna"></pre>
+
+                    <button class="btn btn-primary" >
+                        <a href="{% url 'registro' %}" style="text-decoration: none; color: white;">Registrate</a>
+                    </button>
+                    <button class="btn btn-primary " type="submit">Iniciar Sesión</button>
+                </form>
+                <div class="col-12 col-md-6 offset-md-3" style="text-align: center;">
+                    {{mensaje}}
+                </div>
+
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

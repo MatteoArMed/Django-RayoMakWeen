@@ -1,0 +1,24 @@
+{% extends 'Mecanico/base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+
+<!-- Inicio Cuerpo Pagina -->
+<div class="container">
+    <div style="text-align: center;" class="mt-5">
+        <div class="card col-12 col-md-6 offset-md-3">
+            <div class="card-body">
+                {{mensaje}}
+                <br>
+                <br>
+                <button class="btn btn-secondary" >
+                <a href="{% url 'home' %}" style="text-decoration: none; color: white;">Volver</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Termino Cuerpo Pagina -->
+
+{% endblock %}

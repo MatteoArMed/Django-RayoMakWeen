@@ -1,0 +1,51 @@
+{% extends 'Mecanico/base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5 d-flex justify-content-center">
+            <div class="card">
+            <div class="card-body">
+                <form action="{% url 'trabajosMecanico' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>Ingresa el trabajo</h2>
+                <div class="form-group row">
+                    <label for="descripcionTrabajo" class="col-12 col-sm-4 col-form-label">Diagnóstico de la atención:</label>
+                    <div class="col-12 col-sm-8">
+                        <textarea type="text" id="descripcionTrabajo" name="descripcionTrabajo" class="form-control" rows="5">
+                    </textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <label for="materialesTrabajos" class="col-12 col-sm-4 col-form-label">Materiales Usados:</label>
+                    <div class="col-12 col-sm-8">
+                    <textarea type="text" id="materialesTrabajos" name="materialesTrabajos" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group row">
+                    <label for="imagenTrabajo" class="col-12 col-sm-4 col-form-label">Imagen del trabajo:</label>
+                    <div class="col-12 col-sm-8">
+                    <div class="input-group">
+                        <input type="file" id="imagenTrabajo" name="imagenTrabajo" accept="image/*" class="form-control">
+                    </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <br>
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}
+

@@ -1,0 +1,73 @@
+{% extends 'Mecanico/base.html' %}
+
+
+
+{% load static %}
+
+{% block contenido %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container mt-3 scroll-container">
+    <div class="table-responsive">
+        <div class="filtro">
+            <div class="group">
+                <h6 for="estadoTrabajo">Trabajos de:</h6>
+                <label for="opciones">Selecciona una opción:</label>
+                <select name="opciones" id="opciones">
+                    <option value="todos">Todos</option>
+                    {% for mecanico in mecanicos %}
+                    <option value="{{ mecanico }}">{{ mecanico }}</option>
+                    {% endfor %}
+                </select>
+                <button type="button" class="btn btn-primary" onclick="aplicarFiltro()">Aplicar filtro</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id del Trabajo</th>
+                    <th>Nombre Mecánico</th>
+                    <th>Imagen Trabajo</th>
+                    <th>Fecha Atención</th>
+                    <th>Descripción</th>
+                    <th>Estado Trabajo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for atencion in atenciones %}
+                <tr>
+                    <td class="align-middle">{{ atencion.id }}</td>
+                    <td class="align-middle">{{ atencion.user }}</td>
+                    <td class="imagenAtencion align-middle"><img src="{{ atencion.Fotos_Atencion.url }}" alt="" style="max-width: 300px; max-height: 300px;"></td>
+                    <td class="align-middle">{{ atencion.Fecha_Atencion }}</td>
+                    <td class="align-middle">{{ atencion.Diagnostico_Atencion }}</td>
+                    <td class="align-middle">{{ atencion.EstadoTrabajo }}</td>
+                    <td class="align-middle">
+                        <a href="{% url 'modificarTrabajo' pk=atencion.id %}" class="btn btn-primary me-2">Modificar</a>
+                        <a href="{% url 'eliminarTrabajo' pk=atencion.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% else %}
+<br>
+<br>
+<div class="container">
+    <div class="card col-12 col-md-6 offset-md-3">
+        <div class="card-body">
+            <h5>No tienes permiso para estar aqui, vuelve a donde estabas rufian</h5>
+        </div>
+        <button class="btn btn-primary mb-3">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: white;">Volver</a>
+        </button>
+    </div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

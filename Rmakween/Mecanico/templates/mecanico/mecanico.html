@@ -1,0 +1,63 @@
+{% extends 'Mecanico/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="CuerpoPagina">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for usuario in mecanico %}
+            <div class="col-12 mt-5">
+                <div class="card text-center">
+                    {% for foto in usuario.id_mecanicos.all %}
+                    <img src="{{ foto.Foto_Mecanico.url }}" class="card-img-top" alt="...">
+                    {% endfor %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ usuario.username }}</h5>
+                        <p class="card-text">{{ usuario.first_name }} </p>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Enviar mensaje a {{ usuario.username }}</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Mensaje</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{% url 'tienda' %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                <label for="recipient-name" class="col-form-label pace">Tu Correo</label>
+                                                <input placeholder="tucorreo@correo.cl" type="email" class="form-control" id="recipient-name" name="correoMensaje">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="message-text" class="col-form-label">Mensaje</label>
+                                                <textarea class="form-control" id="message-text" placeholder="¿En qué te puedo ayudar?" name="descripcionMensaje"></textarea>
+                                            </div>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-secondary" >Enviar Mensaje</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-success" style="margin-bottom: 2px;">
+                            <a href="{{ usuario.username }}" style="text-decoration: none; color: white;">Trabajos</a>
+                        </button>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">{{ usuario.username }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
