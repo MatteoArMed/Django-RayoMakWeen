@@ -52,16 +52,13 @@ footer .legal > span {
 .imagenAtencion {
     max-width: 200px;
     max-height: 200px;
-    object-fit: fill;
+    object-fit: contain;
     
 }
 
-.table{
-    overflow: scroll;
-}
 
 .card-img-top {
-    object-fit: cover;
+    object-fit: fill;
     overflow: hidden;
     max-width: 100%;
     height: 300px;

@@ -10,7 +10,7 @@
         {% for my_atencion in atenciones %}
             <div class="col">
                 <div class="card text-center">
-                    <img class="card-img-top" src="{{ my_atencion.Fotos_Atencion.url }}" height="300px" width="300px" alt="...">
+                    <img class="card-img-top" src="{{ my_atencion.Fotos_Atencion.url }}" alt="...">
                     <div class="card-body">
                         {% for usuario in mecanico %}
                         <h6 class="card-title">{{ usuario.first_name }}</h6>
