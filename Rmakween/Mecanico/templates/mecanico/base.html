@@ -74,23 +74,22 @@
                                         <form method="POST" id="contacto" class="contacto" action="datosContacto" onsubmit="return EnviarFormularioContacto()">
                                         {% csrf_token %}
                                         <div class="col-12">
-                                            <label class="form-label">Nombre</label>
+                                            <label class="form-label" for="nombreContacto">Nombre</label>
                                             <input type="text" class="form-control" id="nombreContacto" placeholder="Matteo" name="nombreContacto">
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label">E-mail</label>
+                                            <label class="form-label" for="emailContacto">E-mail</label>
                                             <input type="email" class="form-control" id="emailContacto" placeholder="ejemplo@rayomakween.cl" name="emailContacto">
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label" id="numeroC">Número de Contacto</label>
+                                            <label class="form-label" for="numeroContacto">Número de Contacto</label>
                                             <input type="text" class="form-control" id="numeroContacto" placeholder="+569" name="numeroContacto">
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label" id="descripcion">Descripción del problema</label>
+                                            <label class="form-label" for="descripcionProblema">Descripción del problema</label>
                                             <input class="form-control" id="descripcionProblema" placeholder="¿En que te podemos ayudar?" name="descripcionProblema"></input>
                                         </div>
                                         <div class="col-12" id="botonContacto">
-                                            <!-- Boton enviar con Funcion de JS -->
                                             <button type="submit" class="btn btn-secondary col-4">Enviar</button>
                                         </div>
                                         </form>
@@ -190,9 +189,9 @@
                 <div class="legal">
                     <hr>
                     <span>© Todos los derechos Reservados</span>
-                    <a href="#">Licencia</a>
-                    <a href="#">Terminos y Condiciones</a>
-                    <a href="#">Privacidad</a>
+                    <a href="{% url 'licencia' %}">Licencia</a>
+                    <a href="{% url 'terminosycondiciones' %}">Terminos y Condiciones</a>
+                    <a href="{% url 'privacidad' %}">Privacidad</a>
                 </div>
             </footer>
         </div>

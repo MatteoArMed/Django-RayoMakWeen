@@ -38,9 +38,9 @@
                 <tr>
                     <td class="align-middle">{{ atencion.id }}</td>
                     <td class="align-middle">{{ atencion.user }}</td>
-                    <td class="imagenAtencion align-middle"><img src="{{ atencion.Fotos_Atencion.url }}" alt="" style="max-width: 300px; max-height: 300px;"></td>
+                    <td class="imagenAtencion align-middle"><img class="imagenAtencion" src="{{ atencion.Fotos_Atencion.url }}" alt="FotoAtencion" ></td>
                     <td class="align-middle">{{ atencion.Fecha_Atencion }}</td>
-                    <td class="align-middle">{{ atencion.Diagnostico_Atencion }}</td>
+                    <td class="align-middle overflow-auto">{{ atencion.Diagnostico_Atencion }}</td>
                     <td class="align-middle">{{ atencion.EstadoTrabajo }}</td>
                     <td class="align-middle">
                         <a href="{% url 'modificarTrabajo' pk=atencion.id %}" class="btn btn-primary me-2">Modificar</a>

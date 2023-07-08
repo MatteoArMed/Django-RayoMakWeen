@@ -34,7 +34,7 @@ footer .legal > span {
     margin-right: 10px;
 }
 
-
+/* Controla el tamaño de las imagenes del carrusel */
 .c-item{
     height: 500px;
 }
@@ -44,13 +44,25 @@ footer .legal > span {
     object-fit: contain;
 }
 
-.cajas{
+/* .cajas{
     align-items: justyfied;
+} */
+
+/* Pagina Admin */
+.imagenAtencion {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: fill;
+    
+}
+
+.table{
+    overflow: scroll;
 }
 
 .card-img-top {
-    overflow: scroll;
-    margin: auto;
+    object-fit: cover;
+    overflow: hidden;
     max-width: 100%;
     height: 300px;
 }

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, datosContacto, login, registro, mecanico, tienda, trabajosMecanico, Franchesco, Yayo, Luigi, administrarTrabajos,modificarTrabajo,eliminarTrabajo, admin, verTrabajo, verMensaje
+from .views import home, datosContacto, login, registro, mecanico, tienda, trabajosMecanico, Franchesco, Yayo, Luigi, administrarTrabajos,modificarTrabajo,eliminarTrabajo, admin, verTrabajo, verMensaje, licencia, terminosycondiciones, privacidad
 # Desde aqui importamos todos los templates 
 
 urlpatterns = [
@@ -19,5 +19,8 @@ urlpatterns = [
     path('admin/',admin,name='admin'),
     path('verTrabajo',verTrabajo,name='verTrabajo'),
     path('verMensaje',verMensaje, name='verMensaje'),
-
+    path('licencia',licencia, name='licencia'),
+    path('terminosycondiciones',terminosycondiciones, name='terminosycondiciones'),
+    path('privacidad',privacidad,name='privacidad'),
+    
 ]

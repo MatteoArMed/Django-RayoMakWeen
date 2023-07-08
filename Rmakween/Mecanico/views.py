@@ -260,3 +260,11 @@ def verMensaje(request):
     return render(request,'mecanico/verMensaje.html',context)
 
 
+def licencia(request):
+    return render(request,'mecanico/licencia.html')
+
+def terminosycondiciones(request):
+    return render(request,'mecanico/terminosycondiciones.html')
+
+def privacidad(request):
+    return render(request,'mecanico/privacidad.html')

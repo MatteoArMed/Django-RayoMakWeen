@@ -12,7 +12,7 @@
             {% if atencion.user == user %}
                 <div class="col">
                     <div class="card text-center">
-                        <img class="mt-3" src="{{ atencion.Fotos_Atencion.url }}" height="300px" width="300px" alt="...">
+                        <img class="card-img-top" src="{{ atencion.Fotos_Atencion.url }}" height="300px" width="300px" alt="...">
                         <div class="card-body">
                             <h6 class="card-title">{{ atencion.user }}</h6>
                             <p class="card-text">Trabajo del {{ atencion.Fecha_Atencion }}</p>
@@ -27,7 +27,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <img src="{{ atencion.Fotos_Atencion.url }}" alt="imagen trabajo">
+                                            <img class="card-img-top" src="{{ atencion.Fotos_Atencion.url }}" alt="imagen trabajo">
                                             <div>
                                                 <h6 for="descripcionTrabajo">Descripción del Trabajo:</h6>
                                                 <textarea class="form-control" id="descripcionTrabajo" name="descripcionTrabajo" rows="5" readonly>{{ atencion.Diagnostico_Atencion }}</textarea>
